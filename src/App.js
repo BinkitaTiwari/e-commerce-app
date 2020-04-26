@@ -5,7 +5,7 @@ import './App.css';
 import ShopPage from './Pages/Shop/Shop';
 import Header from './Components/Header/Header';
 import SignInSignUp from './Pages/Sign-In&Sign-Up/Sign-In&Sign-Up';
-import {auth} from './Firebase/Firebase';
+import {auth,createUserProfileDocument} from './Firebase/Firebase';
 
 
 class App extends Component {
@@ -15,10 +15,23 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth=auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log(user);
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+
+          console.log(this.state);
+        });
+      }
+
+      this.setState({ currentUser: userAuth });
     });
   }
 
