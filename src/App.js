@@ -6,6 +6,7 @@ import './App.css';
 import ShopPage from './Pages/Shop/Shop';
 import Header from './Components/Header/Header';
 import SignInAndSignUp from './Pages/Sign-In&Sign-Up/Sign-In&Sign-Up';
+import Checkout from './Pages/Checkout/checkout';
 import {auth,createUserProfileDocument} from './Firebase/Firebase';
 import {setCurrentUser} from './Redux/User/User.action';
 import {selectCurrentUser} from './Redux/User/User-selector';
@@ -48,6 +49,7 @@ class App extends Component {
         <Switch>
           <Route exact path ='/' component={Homepage}/>
           <Route path ='/shop' component={ShopPage}/>
+          <Route exact path ='/checkout' component={Checkout}/>
           <Route exact path='/signin' render={()=> this.props.CurrentUser? 
               (<Redirect to='/'/>):
               (<SignInAndSignUp/>)
