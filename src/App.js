@@ -8,7 +8,7 @@ import Header from './Components/Header/Header';
 import SignInAndSignUp from './Pages/Sign-In&Sign-Up/Sign-In&Sign-Up';
 import {auth,createUserProfileDocument} from './Firebase/Firebase';
 import {setCurrentUser} from './Redux/User/User.action';
-
+import {selectCurrentUser} from './Redux/User/User-selector';
 
 class App extends Component {
   
@@ -60,8 +60,8 @@ class App extends Component {
   
 }
 
-const mapStateToProps=({user})=>({
-  CurrentUser:user.CurrentUser
+const mapStateToProps=(state)=>({
+  CurrentUser:selectCurrentUser(state)
 })
 
 
