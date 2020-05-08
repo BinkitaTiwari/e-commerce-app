@@ -48,7 +48,7 @@ const INITIAL_STATE={
     switch(action.type){
         default:
             return{
-                state
+                ...state
        
             }
     }       
