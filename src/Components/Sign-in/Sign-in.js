@@ -1,9 +1,10 @@
 import React from 'react';
-
+import{Link} from 'react-router-dom';
 import FormInput from '../Form-input/Form-Input';
 import CustomButton from '../Custom-button/Custom-button';
 import {auth,signInWithGoogle} from '../../Firebase/Firebase';
 import './Sign-in.scss';
+
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -37,6 +38,8 @@ class SignIn extends React.Component {
     return (
       <div className='sign-in'>
         <h2>I already have an account</h2>
+        
+
         <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
@@ -58,10 +61,16 @@ class SignIn extends React.Component {
           />
           <div className="buttons">
           <CustomButton type='submit'> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Google SignIn </CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Google SignIn 
+         </CustomButton>
+        
 
           </div>
-          
+          <div>
+            <h4>Don't have an account?
+              <Link to='/signup' > SignUp </Link>
+            </h4>
+          </div>
         </form>
       </div>
     );
