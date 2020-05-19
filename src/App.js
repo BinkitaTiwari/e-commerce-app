@@ -11,6 +11,7 @@ import {auth,createUserProfileDocument} from './Firebase/Firebase';
 import {setCurrentUser} from './Redux/User/User.action';
 import {selectCurrentUser} from './Redux/User/User-selector';
 import SignUp from './Components/Sign-Up/Sign-Up';
+import checkout from './Pages/Checkout/checkout';
 
 class App extends Component {
   
@@ -42,6 +43,13 @@ class App extends Component {
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
+
+   
+  
+
+  
+
+
   render(){
 
     return (
@@ -50,7 +58,9 @@ class App extends Component {
         <Switch>
           <Route exact path ='/' component={Homepage}/>
           <Route  path ='/shop' component={ShopPage}/>
-          <Route exact path ='/checkout' component={Checkout}/>
+          <Route exact path ='/checkout' render={()=>this.props.CurrentUser?
+          (<Checkout/>):(<Redirect to ='/signin'/>)
+        }  />
           <Route path='/signup' component={SignUp}/>
           <Route exact path='/signin' render={()=> this.props.CurrentUser? 
               (<Redirect to='/'/>):

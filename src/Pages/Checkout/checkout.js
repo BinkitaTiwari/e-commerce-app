@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 import './checkout.scss';
 import {selectCartItems,selectCartTotal} from '../../Redux/Cart/Cart-selectors';
 import CheckoutItem from '../../Components/Checkout-item/Checkout-item';
+import {selectCurrentUser} from '../../Redux/User/User-selector';
 import StripeCheckoutButton from '../../Components/Stripe-button/Stripe-button';
 
+/*const handleChange=(props)=>{
+  if(props.CurrentUser==null)
+  {
+    alert("Please SignIn")
+  }
+}*/
+  
 const Checkout =({cartItems,total})=>{
     return(
         <div className='checkout-page'>
@@ -28,20 +36,22 @@ const Checkout =({cartItems,total})=>{
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
-    <div className='total'>TOTAL:${total}</div>
+    <div className='total'>TOTAL:₹{total}</div>
     <div className='test-warning'>
       *Please use the following test credit card for payments*
       <br />
       4242 4242 4242 4242 - Exp: 01/25 - CVV: 123
     </div>
-    <StripeCheckoutButton price={total}/>
+    <StripeCheckoutButton  price={total} />
+    
   </div>
     )
 }
 
 const mapStateToProps=(state)=>({
     cartItems:selectCartItems(state),
-    total:selectCartTotal(state)
+    total:selectCartTotal(state),
+    CurrentUser:selectCurrentUser(state)
 })
 
 export default connect(mapStateToProps)(Checkout);
