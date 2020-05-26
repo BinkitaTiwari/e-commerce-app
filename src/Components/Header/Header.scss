@@ -4,11 +4,20 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+    
+
+  
   
     .logo-container {
       height: 100%;
       width: 70px;
       padding: 25px;
+
+      @media (max-width:800px){
+        width:70px;
+        padding: 0;
+        //justify-items: left;
+    }
     }
   
     .options {

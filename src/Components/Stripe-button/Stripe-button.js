@@ -30,10 +30,10 @@ const StripeCheckoutButton = ( props) => { //this function is connected so u hav
       billingAddress
       shippingAddress
       image='https://svgshare.com/i/CUz.svg'
-      description={`Your total is ₹${props.price}`}
-      amount={priceForStripe}
-      panelLabel='Pay Now'
-      token={onToken}
+     description={`Your total is ₹${props.price}`}
+       amount={priceForStripe}
+       panelLabel='Pay Now'
+      token={onToken} 
       stripeKey={publishableKey}
       //onClick={()=>handleChange()}
       triggerEvent={"onClick"}
