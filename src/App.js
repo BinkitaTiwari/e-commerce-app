@@ -11,7 +11,7 @@ import {auth,createUserProfileDocument} from './Firebase/Firebase';
 import {setCurrentUser} from './Redux/User/User.action';
 import {selectCurrentUser} from './Redux/User/User-selector';
 import SignUp from './Components/Sign-Up/Sign-Up';
-import checkout from './Pages/Checkout/checkout';
+//import checkout from './Pages/Checkout/checkout';
 
 class App extends Component {
   
