@@ -26,6 +26,8 @@ class SignIn extends React.Component {
       console.log(error);
     }
     
+    
+    
   };
 
   handleChange = event => {
@@ -52,11 +54,16 @@ class SignIn extends React.Component {
             required
           />
           <FormInput
+            id="pass"
             name='password'
             type='password'
             value={this.state.password}
             handleChange={this.handleChange}
             label='password'
+            minlength='6'
+            maxlength='8'
+            pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$'
+            title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number"
             required
           />
           <div className="buttons">

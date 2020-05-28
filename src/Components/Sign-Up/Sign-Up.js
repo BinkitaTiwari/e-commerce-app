@@ -75,6 +75,7 @@ class SignUp extends React.Component {
             value={email}
             onChange={this.handleChange}
             label='Email'
+            
             required
           />
           <FormInput
@@ -83,6 +84,10 @@ class SignUp extends React.Component {
             value={password}
             onChange={this.handleChange}
             label='Password'
+            minlength='6'
+            maxlength='8'
+            pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$'
+            title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number"
             required
           />
           <FormInput
@@ -91,6 +96,10 @@ class SignUp extends React.Component {
             value={confirmPassword}
             onChange={this.handleChange}
             label='Confirm Password'
+            minlength='6'
+            maxlength='8'
+            pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$'
+            title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number"
             required
           />
           <CustomButton type='submit'>SIGN UP</CustomButton>
