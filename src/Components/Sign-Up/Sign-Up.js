@@ -1,8 +1,9 @@
 import React from 'react';
 
-import FormInput from '../Form-input/Form-Input';
+//import FormInput from '../Form-input/Form-Input';
 import CustomButton from '../Custom-button/Custom-button';
-
+import{Link} from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 import { auth, createUserProfileDocument } from '../../Firebase/Firebase';
 
 import './Sign-Up.scss';
@@ -56,53 +57,68 @@ class SignUp extends React.Component {
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
+    
+
     return (
       <div className='sign-up'>
-        <h2 className='title'>I do not have a account</h2>
-        <span>Sign up with your email and password</span>
+        
+        
+        <span>Sign up with your email and password</span><br/>
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
-          <FormInput
+          <TextField
             type='text'
             name='displayName'
             value={displayName}
             onChange={this.handleChange}
             label='Display Name'
+            variant="outlined"
             required
-          />
-          <FormInput
+            style={{width:'280px'}}
+          /><br/><br/>
+          <TextField
             type='email'
             name='email'
             value={email}
             onChange={this.handleChange}
             label='Email'
-            
+            variant="outlined"
             required
-          />
-          <FormInput
+            style={{width:'280px'}}
+          /><br/><br/>
+          <TextField
             type='password'
             name='password'
             value={password}
             onChange={this.handleChange}
             label='Password'
-            minlength='6'
-            maxlength='8'
+            minLength='6'
+            maxLength='8'
             pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$'
             title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number"
+            variant="outlined"
             required
-          />
-          <FormInput
+            style={{width:'280px'}}
+          /><br/><br/>
+          <TextField
             type='password'
             name='confirmPassword'
             value={confirmPassword}
             onChange={this.handleChange}
             label='Confirm Password'
-            minlength='6'
-            maxlength='8'
+            minLength='6'
+            maxLength='8'
             pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$'
             title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number"
+            variant="outlined"
             required
-          />
-          <CustomButton type='submit'>SIGN UP</CustomButton>
+            style={{width:'280px'}}
+          /><br/><br/>
+          <CustomButton type='submit' style={{width:'280px'}}>SIGN UP</CustomButton>
+          <div>
+            <h4>Already have an account?
+              <Link to='/signin' > SignIn </Link>
+            </h4>
+          </div>
         </form>
       </div>
     );
