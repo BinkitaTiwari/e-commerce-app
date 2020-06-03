@@ -10,6 +10,8 @@
   
     align-items: center;
     position: relative;
+
+      
   
   
   
@@ -43,10 +45,11 @@
         opacity: 0.85;
         display: flex;
       }
+      
+      
+  
     }
-  
-  
-  
+    
     .collection-footer {
   
       width: 100%;
@@ -78,5 +81,40 @@
       }
   
     }
+    @media screen and (max-width:800px) {
+      width:40vw;
+      
+      .image{
+        width: 330px;
+        height:300px;
+        border: 1px solid black;
+        
+        
+        
+      }
+      .custom-button {
+        width: 200px;
+        opacity: unset;
+        //position: absolute;
+        top: 200px;
+        display: none;
+      }
+      
+      &:hover {
+        .image {
+          opacity: unset;
+        }
+
+    
+        .custom-button {
+          opacity: unset;
+          
+        }
+        
+        
+    
+      }
+
+    }
   
-  }
+  }  
