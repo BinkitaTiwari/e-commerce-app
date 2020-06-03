@@ -38,4 +38,26 @@
       font-size: 24px;
       color: red;
     }
+
+    @media screen and (max-width:800px) {
+      width:380px;
+      min-height: fit-content;
+      padding:2px 0 0;
+      .checkout-header {
+        width: 380px;
+        //padding: 2px 0 0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+    
+        .header-block {
+          text-transform: capitalize;
+          width: 15%;
+    
+          &:last-child {
+            width: 15px;
+          }
+        }
+      }
+    }
   }
